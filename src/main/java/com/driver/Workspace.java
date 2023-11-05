@@ -17,7 +17,7 @@ public class Workspace extends Gmail{
     }
 
     public void addMeeting(Meeting meeting){
-        //add the meeting to calendar
+        // Add the meeting to calendar
         calendar.add(meeting);
     }
 
@@ -29,14 +29,12 @@ public class Workspace extends Gmail{
         // Example: If a meeting ends at 10:00 am, you cannot attend another meeting starting at 10:00 am
         int maxMeetings = 0;
         LocalTime endTime = LocalTime.MIN;
-
         for (Meeting meeting : calendar) {
             if (meeting.getStartTime().isAfter(endTime)) {
                 maxMeetings++;
                 endTime = meeting.getEndTime();
             }
         }
-
         return maxMeetings;
     }
 }
